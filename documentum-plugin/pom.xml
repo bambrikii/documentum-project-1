@@ -1,0 +1,120 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>org.bambrikii.examples.com.emc.documentum</groupId>
+	<artifactId>documentum-plugin</artifactId>
+	<packaging>maven-plugin</packaging>
+	<version>0.0.1-SNAPSHOT</version>
+	<name>documentum-plugin Maven Mojo</name>
+	<url>http://maven.apache.org</url>
+	<dependencies>
+		<dependency>
+			<groupId>org.apache.maven</groupId>
+			<artifactId>maven-plugin-api</artifactId>
+			<version>2.0</version>
+		</dependency>
+		<dependency>
+			<groupId>junit</groupId>
+			<artifactId>junit</artifactId>
+			<version>4.8.1</version>
+			<scope>test</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.maven.plugin-testing</groupId>
+			<artifactId>maven-plugin-testing</artifactId>
+			<version>2.0-alpha-1</version>
+			<type>pom</type>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.maven.plugin-testing</groupId>
+			<artifactId>maven-plugin-testing-harness</artifactId>
+			<version>2.0-alpha-1</version>
+		</dependency>
+
+		<dependency>
+			<groupId>com.emc.documentum</groupId>
+			<artifactId>DDS</artifactId>
+			<version>6.0.sp1</version>
+		</dependency>
+		<dependency>
+			<groupId>com.emc.documentum</groupId>
+			<artifactId>dfc</artifactId>
+			<version>6.6</version>
+		</dependency>
+		<dependency>
+			<groupId>aspectj</groupId>
+			<artifactId>aspectjrt</artifactId>
+			<version>1.5.4</version>
+		</dependency>
+		<dependency>
+			<groupId>commons-lang</groupId>
+			<artifactId>commons-lang</artifactId>
+			<version>2.6</version>
+		</dependency>
+
+		<dependency>
+			<groupId>javax.xml</groupId>
+			<artifactId>jaxb-api</artifactId>
+			<version>2.1</version>
+		</dependency>
+
+	</dependencies>
+
+
+	<build>
+		<plugins>
+			<plugin>
+				<artifactId>documentum-plugin</artifactId>
+				<groupId>org.bambrikii.examples.com.emc.documentum</groupId>
+				<version>0.0.1-SNAPSHOT</version>
+				<configuration>
+					<!-- Specify the MyMojo parameter -->
+					<outputDirectory>target/test-harness/project-to-test</outputDirectory>
+					<params>
+						<docbaseName>documentum</docbaseName>
+						<userDomain></userDomain>
+						<userName>dmadmin</userName>
+						<userPassword>dmadmin</userPassword>
+						<logFileLocation>.</logFileLocation>
+						<propertiesFile>C:\Documentum\config\dfc.properties</propertiesFile>
+						<docApps>
+							<param>
+								<applicationFileName>C:\temp\PSB_KFL</applicationFileName>
+								<logFileName>docapp.log</logFileName>
+							</param>
+<!-- 							<param> -->
+<!-- 								<applicationFileName>C:\temp\PSB_KFL_TBO</applicationFileName> -->
+<!-- 								<logFileName>docapp.PSB_KFL.log</logFileName> -->
+<!-- 							</param> -->
+<!-- 							<param> -->
+<!-- 								<applicationFileName>C:\temp\PSB_KFL_TBO</applicationFileName> -->
+<!-- 								<logFileName>docapp.PSB_KFL_TBO.log</logFileName> -->
+<!-- 							</param> -->
+<!-- 							<param> -->
+<!-- 								<applicationFileName>C:\temp\PSB_KFL_TBO_2</applicationFileName> -->
+<!-- 								<logFileName>docapp.PSB_KFL_TBO_2.log</logFileName> -->
+<!-- 							</param> -->
+<!-- 							<param> -->
+<!-- 								<applicationFileName>C:\temp\PSB_KFL_TBO_3</applicationFileName> -->
+<!-- 								<logFileName>docapp.PSB_KFL_TBO_3.log</logFileName> -->
+<!-- 							</param> -->
+							<param>
+								<applicationFileName>C:\temp\PSB_APPROVED</applicationFileName>
+								<logFileName>docapp.PSB_APPROVED.log</logFileName>
+							</param>
+							<param>
+								<applicationFileName>C:\temp\PSB_PROFI</applicationFileName>
+								<logFileName>docapp.PSB_PROFI.log</logFileName>
+							</param>
+							<param>
+								<applicationFileName>C:\temp\PSB_PI</applicationFileName>
+								<logFileName>docapp.PSB_PI.log</logFileName>
+							</param>
+						</docApps>
+					</params>
+				</configuration>
+			</plugin>
+		</plugins>
+	</build>
+
+</project>
