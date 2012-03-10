@@ -1,4 +1,4 @@
-package org.bambrikii.examples.com.emc.documentum;
+package org.bambrikii.examples.com.emc.documentum.docapp;
 
 public class DocApp {
 	private String logFileName;

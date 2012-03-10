@@ -1,10 +1,11 @@
-package org.bambrikii.examples.com.emc.documentum;
+package org.bambrikii.examples.com.emc.documentum.docapp;
 
-import org.apache.log4j.Logger;
 import org.apache.maven.plugin.AbstractMojo;
 import org.apache.maven.plugin.MojoExecutionException;
 import org.apache.maven.plugin.MojoFailureException;
 import org.codehaus.plexus.util.StringUtils;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import com.documentum.ApplicationInstall.DfAppInstaller;
 import com.documentum.fc.common.DfException;
@@ -13,12 +14,11 @@ import com.documentum.fc.common.DfException;
  * Goal which touches a timestamp file.
  * 
  * @goal install-docapp
- * 
  * @phase process-sources
  */
 public class DocInstallerMojo extends AbstractMojo {
 
-	private static Logger logger = Logger.getLogger(DocInstallerMojo.class);
+	private static Logger logger = LoggerFactory.getLogger(DocInstallerMojo.class);
 
 	/**
 	 * @parameter

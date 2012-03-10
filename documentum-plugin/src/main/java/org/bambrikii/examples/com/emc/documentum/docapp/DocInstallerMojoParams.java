@@ -1,4 +1,4 @@
-package org.bambrikii.examples.com.emc.documentum;
+package org.bambrikii.examples.com.emc.documentum.docapp;
 
 import java.util.List;
 

@@ -58,63 +58,119 @@
 			<version>2.1</version>
 		</dependency>
 
+		<dependency>
+			<groupId>org.slf4j</groupId>
+			<artifactId>slf4j-api</artifactId>
+			<version>1.6.4</version>
+		</dependency>
 	</dependencies>
 
-
-	<build>
-		<plugins>
-			<plugin>
-				<artifactId>documentum-plugin</artifactId>
-				<groupId>org.bambrikii.examples.com.emc.documentum</groupId>
-				<version>0.0.1-SNAPSHOT</version>
-				<configuration>
-					<!-- Specify the MyMojo parameter -->
-					<outputDirectory>target/test-harness/project-to-test</outputDirectory>
-					<params>
-						<docbaseName>documentum</docbaseName>
-						<userDomain></userDomain>
-						<userName>dmadmin</userName>
-						<userPassword>dmadmin</userPassword>
-						<logFileLocation>.</logFileLocation>
-						<propertiesFile>C:\Documentum\config\dfc.properties</propertiesFile>
-						<docApps>
-							<param>
-								<applicationFileName>C:\temp\PSB_KFL</applicationFileName>
-								<logFileName>docapp.log</logFileName>
-							</param>
-<!-- 							<param> -->
-<!-- 								<applicationFileName>C:\temp\PSB_KFL_TBO</applicationFileName> -->
-<!-- 								<logFileName>docapp.PSB_KFL.log</logFileName> -->
-<!-- 							</param> -->
-<!-- 							<param> -->
-<!-- 								<applicationFileName>C:\temp\PSB_KFL_TBO</applicationFileName> -->
-<!-- 								<logFileName>docapp.PSB_KFL_TBO.log</logFileName> -->
-<!-- 							</param> -->
-<!-- 							<param> -->
-<!-- 								<applicationFileName>C:\temp\PSB_KFL_TBO_2</applicationFileName> -->
-<!-- 								<logFileName>docapp.PSB_KFL_TBO_2.log</logFileName> -->
-<!-- 							</param> -->
-<!-- 							<param> -->
-<!-- 								<applicationFileName>C:\temp\PSB_KFL_TBO_3</applicationFileName> -->
-<!-- 								<logFileName>docapp.PSB_KFL_TBO_3.log</logFileName> -->
-<!-- 							</param> -->
-							<param>
-								<applicationFileName>C:\temp\PSB_APPROVED</applicationFileName>
-								<logFileName>docapp.PSB_APPROVED.log</logFileName>
-							</param>
-							<param>
-								<applicationFileName>C:\temp\PSB_PROFI</applicationFileName>
-								<logFileName>docapp.PSB_PROFI.log</logFileName>
-							</param>
-							<param>
-								<applicationFileName>C:\temp\PSB_PI</applicationFileName>
-								<logFileName>docapp.PSB_PI.log</logFileName>
-							</param>
-						</docApps>
-					</params>
-				</configuration>
-			</plugin>
-		</plugins>
-	</build>
+	<profiles>
+		<profile>
+			<id>my-docapp</id>
+			<activation>
+				<property>
+					<name>p</name>
+					<value>my-docapp</value>
+				</property>
+			</activation>
+			<build>
+				<plugins>
+					<plugin>
+						<artifactId>documentum-plugin</artifactId>
+						<groupId>org.bambrikii.examples.com.emc.documentum</groupId>
+						<version>0.0.1-SNAPSHOT</version>
+						<configuration>
+							<!-- Specify the MyMojo parameter -->
+							<outputDirectory>target/test-harness/project-to-test</outputDirectory>
+							<params>
+								<docbaseName>documentum</docbaseName>
+								<userDomain></userDomain>
+								<userName>dmadmin</userName>
+								<userPassword>dmadmin</userPassword>
+								<logFileLocation>.</logFileLocation>
+								<propertiesFile>C:\Documentum\config\dfc.properties</propertiesFile>
+								<docApps>
+									<param>
+										<applicationFileName>C:\temp\PSB_KFL</applicationFileName>
+										<logFileName>docapp.log</logFileName>
+									</param>
+									<param>
+										<applicationFileName>C:\temp\PSB_KFL_TBO</applicationFileName>
+										<logFileName>docapp.PSB_KFL.log</logFileName>
+									</param>
+									<param>
+										<applicationFileName>C:\temp\PSB_KFL_TBO</applicationFileName>
+										<logFileName>docapp.PSB_KFL_TBO.log</logFileName>
+									</param>
+									<param>
+										<applicationFileName>C:\temp\PSB_KFL_TBO_2</applicationFileName>
+										<logFileName>docapp.PSB_KFL_TBO_2.log</logFileName>
+									</param>
+									<param>
+										<applicationFileName>C:\temp\PSB_KFL_TBO_3</applicationFileName>
+										<logFileName>docapp.PSB_KFL_TBO_3.log</logFileName>
+									</param>
+									<param>
+										<applicationFileName>C:\temp\PSB_APPROVED</applicationFileName>
+										<logFileName>docapp.PSB_APPROVED.log</logFileName>
+									</param>
+									<param>
+										<applicationFileName>C:\temp\PSB_PROFI</applicationFileName>
+										<logFileName>docapp.PSB_PROFI.log</logFileName>
+									</param>
+									<param>
+										<applicationFileName>C:\temp\PSB_PI</applicationFileName>
+										<logFileName>docapp.PSB_PI.log</logFileName>
+									</param>
+								</docApps>
+							</params>
+						</configuration>
+					</plugin>
+				</plugins>
+			</build>
+		</profile>
+		<profile>
+			<id>my-bof</id>
+			<activation>
+				<property>
+					<name>p</name>
+					<value>my-bof</value>
+				</property>
+			</activation>
+			<build>
+				<plugins>
+					<plugin>
+						<artifactId>documentum-plugin</artifactId>
+						<groupId>org.bambrikii.examples.com.emc.documentum</groupId>
+						<version>0.0.1-SNAPSHOT</version>
+						<configuration>
+							<bofs>
+								<param>
+									<contactInfo></contactInfo>
+									<description></description>
+									<minVMVersion></minVMVersion>
+									<moduleType></moduleType>
+									<primaryClass></primaryClass>
+									<packages>
+										<param>
+											<versionPolicy></versionPolicy>
+											<jarFiles>
+												<param>
+													<downloadable>true</downloadable>
+													<file></file>
+													<jarType></jarType>
+												</param>
+											</jarFiles>
+										</param>
+									</packages>
+								</param>
+							</bofs>
+						</configuration>
+					</plugin>
+				</plugins>
+			</build>
+		</profile>
+	</profiles>
 
 </project>
