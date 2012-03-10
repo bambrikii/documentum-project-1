@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+	elementFormDefault="qualified">
+	<xs:element name="SmartListDefinition">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="QueryBuilder" />
+				<xs:element ref="DisplayPreferences" />
+				<xs:element ref="PropertyList" />
+			</xs:sequence>
+			<xs:attribute name="version" use="required" type="xs:integer" />
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="QueryBuilder">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="SourceList" />
+				<xs:element ref="QueryScopeList" />
+				<xs:element ref="ExpressionSet" />
+				<xs:element ref="ResultAttributeList" />
+			</xs:sequence>
+			<xs:attribute name="allVersions" use="required" type="xs:boolean" />
+			<xs:attribute name="hiddenObjects" use="required" type="xs:boolean" />
+			<xs:attribute name="isDatabaseSearchRequested" use="required"
+				type="xs:boolean" />
+			<xs:attribute name="maxResults" use="required" type="xs:integer" />
+			<xs:attribute name="objectType" use="required" type="xs:NCName" />
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="SourceList">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="Source" />
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="Source">
+		<xs:complexType>
+			<xs:attribute name="description" use="required" />
+			<xs:attribute name="name" use="required" type="xs:NCName" />
+			<xs:attribute name="serverVersion" use="required" />
+			<xs:attribute name="type" use="required" type="xs:NCName" />
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="QueryScopeList">
+		<xs:complexType />
+	</xs:element>
+	<xs:element name="ResultAttributeList">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element maxOccurs="unbounded" ref="ResultAttribute" />
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="ResultAttribute">
+		<xs:complexType>
+			<xs:attribute name="name" use="required" type="xs:NCName" />
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="DisplayPreferences">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="DisplayAttributeList" />
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="DisplayAttributeList">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element maxOccurs="unbounded" ref="DisplayAttribute" />
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="DisplayAttribute">
+		<xs:complexType>
+			<xs:attribute name="name" use="required" type="xs:NCName" />
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="PropertyList">
+		<xs:complexType />
+	</xs:element>
+	<xs:element name="ExpressionSet">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element minOccurs="0" maxOccurs="unbounded" ref="ExpressionSet" />
+				<xs:element minOccurs="0" ref="SimpleAttributeExpression" />
+			</xs:sequence>
+			<xs:attribute name="logicalOperator" use="required"
+				type="xs:NCName" />
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="SimpleAttributeExpression">
+		<xs:complexType>
+			<xs:simpleContent>
+				<xs:extension base="xs:integer">
+					<xs:attribute name="attribute" use="required" type="xs:NCName" />
+					<xs:attribute name="caseSensitive" use="required"
+						type="xs:boolean" />
+					<xs:attribute name="dataType" use="required" type="xs:NCName" />
+					<xs:attribute name="repeated" use="required" type="xs:boolean" />
+					<xs:attribute name="searchOperation" use="required"
+						type="xs:NCName" />
+				</xs:extension>
+			</xs:simpleContent>
+		</xs:complexType>
+	</xs:element>
+</xs:schema>

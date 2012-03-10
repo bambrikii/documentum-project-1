@@ -11,6 +11,8 @@ public class Bof {
 	private String moduleName;
 	private String moduleType;
 	private List<Package> packages;
+	private String minDFCVersion;
+	private String implTech;
 
 	public String getPrimaryClass() {
 		return primaryClass;
@@ -66,6 +68,22 @@ public class Bof {
 
 	public void setPackages(List<Package> packages) {
 		this.packages = packages;
+	}
+
+	public String getMinDFCVersion() {
+		return minDFCVersion;
+	}
+
+	public void setMinDFCVersion(String minDFCVersion) {
+		this.minDFCVersion = minDFCVersion;
+	}
+
+	public String getImplTech() {
+		return implTech;
+	}
+
+	public void setImplTech(String implTech) {
+		this.implTech = implTech;
 	}
 
 }

@@ -8,6 +8,10 @@ import org.apache.maven.plugin.MojoFailureException;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import com.documentum.bof.DfBOFPackageException;
+import com.documentum.fc.client.IDfSession;
+import com.documentum.fc.common.DfException;
+
 /**
  * @goal install-bof
  * @phase process-sources
@@ -27,7 +31,21 @@ public class BofInstallerMojo extends AbstractMojo {
 
 		logger.debug("Debug 1");
 		// com.documentum.bof.ant.BOFPackaging
+		IDfSession session = null;// TODO:
+		for (Bof bof : bofs) {
+			try {
+				BofDeployCommand deployer = new BofDeployCommand();
+				deployer.setSession(session);
+				deployer.installBof(bof);
+			} catch (DfBOFPackageException ex) {
+				logger.error("Bof installation exception", ex);
+			} catch (DfException ex) {
+				logger.error("Bof installation exception", ex);
+			}
+		}
+		// installBof(moduleName);
 
 		logger.debug("Bof install complete");
 	}
+
 }

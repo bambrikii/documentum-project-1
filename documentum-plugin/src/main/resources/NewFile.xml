@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<SmartListDefinition version="1">
+	<QueryBuilder allVersions="false" hiddenObjects="false"
+		isDatabaseSearchRequested="false" maxResults="-1" objectType="psb_kfl_claim">
+		<SourceList>
+			<Source description="" name="documentum" serverVersion="6.6.0.041  Win32.SQLServer"
+				type="docbase" />
+		</SourceList>
+		<QueryScopeList />
+		<ExpressionSet logicalOperator="AND">
+			<ExpressionSet logicalOperator="AND">
+				<SimpleAttributeExpression attribute="object_name"
+					caseSensitive="true" dataType="string" repeated="false"
+					searchOperation="equals">123</SimpleAttributeExpression>
+			</ExpressionSet>
+			<ExpressionSet logicalOperator="AND" />
+		</ExpressionSet>
+		<ResultAttributeList>
+			<ResultAttribute name="object_name" />
+			<ResultAttribute name="score" />
+			<ResultAttribute name="summary" />
+			<ResultAttribute name="r_modify_date" />
+			<ResultAttribute name="r_object_id" />
+			<ResultAttribute name="r_object_type" />
+			<ResultAttribute name="r_lock_owner" />
+			<ResultAttribute name="owner_name" />
+			<ResultAttribute name="r_link_cnt" />
+			<ResultAttribute name="r_is_virtual_doc" />
+			<ResultAttribute name="r_content_size" />
+			<ResultAttribute name="a_content_type" />
+			<ResultAttribute name="i_is_reference" />
+			<ResultAttribute name="r_assembled_from_id" />
+			<ResultAttribute name="r_has_frzn_assembly" />
+			<ResultAttribute name="a_compound_architecture" />
+			<ResultAttribute name="i_is_replica" />
+			<ResultAttribute name="r_policy_id" />
+		</ResultAttributeList>
+	</QueryBuilder>
+	<DisplayPreferences>
+		<DisplayAttributeList>
+			<DisplayAttribute name="object_name" />
+			<DisplayAttribute name="score" />
+			<DisplayAttribute name="summary" />
+			<DisplayAttribute name="r_modify_date" />
+			<DisplayAttribute name="Location" />
+		</DisplayAttributeList>
+	</DisplayPreferences>
+	<PropertyList />
+</SmartListDefinition>
